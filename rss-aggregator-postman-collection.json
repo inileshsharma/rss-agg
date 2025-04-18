@@ -1,0 +1,165 @@
+{
+    "info": {
+        "_postman_id": "5ee6fed8-a4c7-4392-a1c7-58565974e7ac",
+        "name": "RSS Aggregator API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "rss-agg-export"
+    },
+    "item": [
+        {
+            "name": "Create User",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Alex\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/v1/users",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "v1",
+                        "users"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Create Feed",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Alex's Blog\",\n    \"url\": \"https://alexurl/index.xml\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/v1/feeds",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "v1",
+                        "feeds"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get All Feeds",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8000/v1/feeds",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "v1",
+                        "feeds"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Follow Feed",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "ApiKey <your_user_apikey>"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"feed_id\": \"<your_feed_id>\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/v1/feedfollows",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "v1",
+                        "feedfollows"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Unfollow Feed",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "ApiKey <your_user_apikey>"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/v1/feedfollows/:feed_id",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "v1",
+                        "feedfollows",
+                        ":feed_id"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Posts for User",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "ApiKey <your_user_apikey>"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/v1/posts",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "v1",
+                        "posts"
+                    ]
+                }
+            }
+        }
+    ]
+}
